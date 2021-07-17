@@ -44,7 +44,7 @@ namespace API.Controllers
             };
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO)
         {
             var user = await _context.Users
