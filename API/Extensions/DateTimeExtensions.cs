@@ -9,7 +9,6 @@ namespace API.Extensions
             DateTime today = DateTime.Today;
             int age = today.Year - dob.Year;
             if (dob.Date > today.AddYears(-age)) age--;
-
             return age;
         }
     }

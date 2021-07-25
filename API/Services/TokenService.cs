@@ -8,6 +8,8 @@ using API.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
+// This service is used to create tokens for logged in users.
+
 namespace API.Services
 {
     public class TokenService : ITokenService

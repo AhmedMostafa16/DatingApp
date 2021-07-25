@@ -17,14 +17,12 @@ namespace API.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
-
         public UsersController(IUserRepository userRepository, IMapper mapper)
         {
             _mapper = mapper;
             _userRepository = userRepository;
         }
 
-        // Returns a list of users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers()
         {
@@ -33,9 +31,8 @@ namespace API.Controllers
             return Ok(users);
         }
 
-        // api/users/{username}
         [HttpGet("{username}")]
-        public async Task<ActionResult<MemberDTO>> GetUsers(string username)
+        public async Task<ActionResult<MemberDTO>> GetUser(string username)
         {
             return await _userRepository.GetMemberAsync(username).ConfigureAwait(false);
         }

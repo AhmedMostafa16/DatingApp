@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+// This handles exceptions and invoke errors. 
+
 namespace API.Middleware
 {
     public class ExceptionMiddleware
