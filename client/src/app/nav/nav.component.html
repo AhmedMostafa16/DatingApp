@@ -16,9 +16,9 @@
       </ng-container>
     </ul>
 
-    <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
-      <img src="{{user.photoUrl}}" alt="{{user.username}}">
-      <a class="dropdown-toggle text-light ml-2" dropdownToggle>Welcome {{user.username | titlecase}}</a>
+    <div class="dropdown" *ngIf="accountService.currentUser$ | async as user" dropdown>
+      <img src="{{ user.photoUrl || './assets/user.png' }}" alt="{{ user.username }}" />
+      <a class="dropdown-toggle text-light ml-2" dropdownToggle>Welcome {{ user.username | titlecase }}</a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item" routerLink="/member/edit">Edit Profile</a>
         <div class="dropdown-divider"></div>
@@ -26,15 +26,28 @@
       </div>
     </div>
 
-    <form #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off"
-      *ngIf="(accountService.currentUser$ | async) === null">
-      <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text"
-        placeholder="Username" />
-      <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password"
-        placeholder="Password" />
-      <button class="btn btn-success my-2 my-sm-0" type="submit">
-        Login
-      </button>
+    <form
+      #loginForm="ngForm"
+      class="form-inline mt-2 mt-md-0"
+      (ngSubmit)="login()"
+      autocomplete="off"
+      *ngIf="(accountService.currentUser$ | async) === null"
+    >
+      <input
+        name="username"
+        [(ngModel)]="model.username"
+        class="form-control mr-sm-2"
+        type="text"
+        placeholder="Username"
+      />
+      <input
+        name="password"
+        [(ngModel)]="model.password"
+        class="form-control mr-sm-2"
+        type="password"
+        placeholder="Password"
+      />
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
     </form>
   </div>
 </nav>
