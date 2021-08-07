@@ -1,9 +1,9 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ReplaySubject } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { environment } from "src/environments/environment";
 import { User } from "../_models/user";
+import { ReplaySubject } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -38,7 +38,6 @@ export class AccountService {
 
   setCurrentUser(user: User) {
     localStorage.setItem("user", JSON.stringify(user));
-
     this.currentUserSource.next(user);
   }
 
