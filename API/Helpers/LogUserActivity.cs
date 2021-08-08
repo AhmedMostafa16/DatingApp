@@ -13,7 +13,7 @@ namespace API.Helpers
         {
             var resultContext = await next().ConfigureAwait(false);
 
-            if(!resultContext.HttpContext.User.Identity.IsAuthenticated) return;
+            if (!resultContext.HttpContext.User.Identity.IsAuthenticated) return;
 
             int userId = resultContext.HttpContext.User.GetUserId();
             var repo = resultContext.HttpContext.RequestServices.GetService<IUserRepository>();
